@@ -1,0 +1,40 @@
+<h1 class="text-center">Admin List</h1>
+<a href="?page=adminadd" class="btn btn"></a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Desctiption</th>
+            <th scope="col">Source</th>
+            <th scope="col">Author</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($pictures as $pic) : ?>
+            <tr>
+                <th scope="row"> <?= $pic['id'] ?></th>
+                <td> <img width="100" src="<?= $pic['src'] ?> " alt="<?= $pic['title'] ?>"></td>
+                <td><?= $pic['title'] ?></td>
+                <td><?= $pic['description'] ?></td>
+                <td><?= $pic['author'] ?></td>
+                <td>
+                    <a href="?page=admin_upload&id=<?= $pic['id'] ?>;" class="btn btn-warning">Update</a>
+                    
+                    <a href="javascript:confirmer(<?= $pic['id'] ?>);" class="btn btn-danger m-1">Delete</a>
+                </td>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
+
+<script>
+function confirmer(id){
+    let res = confirm("Êtes-vous sûr de vouloir supprimer?");
+    if(res){
+        window.location.href = '?page=admin_delete&id='+id;
+    }
+}
+</script>
+<a href="?page=adminadd" class="btn btn-primary m-1">Add Picture</a>

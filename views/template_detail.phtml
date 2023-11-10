@@ -1,0 +1,29 @@
+
+
+<h2>ARTICLE</h2>
+
+<!-- IMAGE -->
+
+<!-- titre -->
+<!-- description -->
+
+<!-- Date en bas à gauche et auteur en bas à droite -->
+
+<!-- Mélange d'html et php, on définie le titre par une balise html et on injecte du php pour appeler le titre depuis la bdd -->
+<h1 class="mb-3 text-center"><?= $pic['title'] ?></h1>
+<!-- Création d'une section pour définir le corps du contenu -->
+<section class="row">
+<!-- Création des div image,description, date et auteur, la class nous vient de Bootsrap -->
+    <div class="col-12">
+        <img src="<?= $pic['src'] ?>" alt="<?= $pic['title'] ?>" class="img-fluid">
+    </div>
+    <div class="col-12 mt-3">
+        <p><?= $pic['description'] ?></p>
+    </div>
+    <div class="col-6 mt-3 fst-italic font-weight-light">
+        <p><?= $pic['updated_at'] ?></p>
+    </div>
+    <div class="col-6 mt-3 fst-italic font-weight-light">
+        <p><?= $pic['author'] ?></p>
+    </div>
+</section>

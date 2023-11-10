@@ -1,0 +1,64 @@
+<h1> HOME </h1>
+<h2>CAROUSEL</h2>
+<!-- DEBUT DU CAROUSEL -->
+<div id="homeCarousel" class="carousel slide" data-bs-touch="true">
+  <div class="carousel-indicators">
+    <!-- PREMIERE BOUCLE POUR AFFICHER LES BOUTONS EN BAS -->
+    <!-- ON FAIT UNE BOUCLE PHP FOREACH POUR CHAQUE PICTURE (PIC) -->
+    <!-- LA VARIABLE $key ICI PERMET D'AVOIR UN DECOMPTE 0, 1, 2 POUR FAIRE FONCTIONNER LE SLIDE -->
+    <?php foreach ($pictures as $key => $pic) : ?>
+      <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="<?= $key ?>" <?php if ($key === array_key_first($pictures)) echo 'class="active" aria-current="true"'; ?> aria-label="Slide <?= $key + 1 ?>">
+      </button>
+    <?php endforeach ?>
+    <!-- FIN DE LA BOUCLE FOREACH DES BOUTONS DU BAS DU CAROUSEL -->
+  </div>
+
+  <!-- DIV CONTENU DU CAROUSEL DONC DES SLIDES -->
+  <div class="carousel-inner">
+
+    <!-- DEUXIEME BOUCLE FOREACH POUR AFFICHER CHAQUE PIC SRC TITLE ET DESCRIPTION -->
+    <?php foreach ($pictures as $key => $pic) : ?>
+      <div class="carousel-item <?php if ($key === array_key_first($pictures)) echo 'active' ?>">
+        <img src="<?= $pic['src'] ?>" class="d-block w-100" alt="<?= $pic['title'] ?>">
+        <div class="carousel-caption d-none d-md-block">
+          <h5><?= $pic['title'] ?></h5>
+          <p><?= $pic['description'] ?></p>
+        </div>
+      </div>
+    <?php endforeach ?>
+    <!-- FIN DE LA FIN DE BOUCLE -->
+  </div>
+  <!-- FIN CONTENU CAROUSEL -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<!-- <h2>Carroussel</h2>
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+  <?php foreach ($pictures as $key => $picture) : ?>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="<?= $picture['src'] ?>" class="d-block w-100" alt="<?= $picture['title'] ?>">
+        <h5><?= $picture['title'] ?></h5>
+        <p><?= $picture['description'] ?></p>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  <?php endforeach ?>
+</div> -->
+
+

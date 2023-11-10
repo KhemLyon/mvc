@@ -1,0 +1,47 @@
+
+<h1 class=mb-3 text-center>ADMIN ADD</h1>
+<?php if (!empty($errors)) : ?>
+    <div class="alert alert-danger" role="alert">
+        <?php foreach ($errors as $error) : ?>
+            <p><?= $error ?></p>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+<?php if (isset($success)) : ?>
+    <div class="alert alert-success" role="alert">
+            <p>Le fichier a été uploadé avec succes !</p>
+    </div>
+<?php endif; ?>
+
+<form method="POST" enctype="multipart/form-data">  
+<div class="mb-3">
+  <label for="title" class="form-label">Title</label>
+  <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+</div>
+<div class="mb-3">
+  <label for="description" class="form-label">Description</label>
+  <input type="text" class="form-control" name="description" id="description" placeholder="Description">
+</div>
+<div class="mb-3">
+  <label for="src" class="form-label">Source</label>
+  <input type="file" class="form-control" name="src" id="src" placeholder="URL Source">
+</div>
+<div class="mb-3">
+  <label for="author" class="form-label">Author</label>
+  <input type="text" class="form-control" name="author" id="author" placeholder="Author">
+</div>
+<div class="mb-3">
+  
+  <input type="submit" class="btn btn-primary" name="submit" value="submit">
+</div>
+</form>
+
+
+<!-- <h1>Upload</h1>
+<php if (!empty($error)) echo $error;
+// var_dump($checkFile) ?>
+<p>Attention ne pas uploader un fichier dont la taille est supérieur à <?= ini_get('upload_max_filesize')?> octets</p> 
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image_file" accept="image/*">
+    <input type="submit" name="upload" value="Upload">
+</form> -->

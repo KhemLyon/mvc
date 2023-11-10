@@ -1,0 +1,31 @@
+<h1>GALLERY</h1>
+
+<section class="row">
+  <?php foreach ($pictures as $pic) : ?>
+
+    <article class="col-12 col-sm-6 col-md-4">
+      <div class="card mb-3">
+        <img src="<?= $pic['src'] ?>" class="card-img-top" alt="<?= $pic['title'] ?>">
+        <div class="card-body">
+          <h4 class="card-title"><?= $pic['title'] ?></h4>
+          <p class="card-text"><?= $pic['description'] ?></p>
+          <p class="card-text"><?= $pic['updated_at'] ?></p>
+          <p class="card-text"><?= $pic['author'] ?></p>
+          <a href="<?= "?page=detail&id=".$pic['id'] ?>" class="btn btn-secondary">Read more</a>
+        </div>
+      </div>
+    </article>
+
+  <?php endforeach ?>
+</section>
+
+<!-- 1-Importation simple en html de la BDD -->
+<!-- <div class="galerie"> 
+    <?php foreach ($pictures as $picture): ?>
+    <div class="photos">
+        <img src="<?= $picture['src'] ?>"alt="<?= $picture['title'] ?>">
+        <p1><?= $picture['author'] ?></p1>
+        <p><?= $picture['description'] ?></p>
+    </div>
+    <?php endforeach; ?> -->
+
